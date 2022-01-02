@@ -28,9 +28,7 @@ public class ArraySerializer extends JsonSerializationRequestHandler {
 
     @Override
     public String handleSerializationRequest(Object itemToSerialize) {
-        Class<?> itemClass = itemToSerialize.getClass();
-
-        if (itemClass.isArray())
+        if (itemToSerialize.getClass().isArray())
             return serialize(itemToSerialize);
 
         return super.handleSerializationRequest(itemToSerialize);

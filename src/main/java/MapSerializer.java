@@ -36,9 +36,7 @@ public class MapSerializer extends JsonSerializationRequestHandler {
 
     @Override
     public String handleSerializationRequest(Object itemToSerialize) {
-        Class<?> itemClass = itemToSerialize.getClass();
-
-        if (Map.class.isAssignableFrom(itemClass))
+        if (Map.class.isAssignableFrom(itemToSerialize.getClass()))
             return serialize(itemToSerialize);
 
         return super.handleSerializationRequest(itemToSerialize);
