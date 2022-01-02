@@ -19,7 +19,11 @@ public class ObjectSerializer extends JsonSerializationRequestHandler {
             serializedObj.append(serializeAClassField(field, item));
         }
 
-        serializedObj.deleteCharAt(serializedObj.length() - 1);
+        int serializedObjLength = serializedObj.length();
+
+        if (serializedObjLength > 1)
+            serializedObj.deleteCharAt(serializedObjLength - 1);
+
         serializedObj.append("}");
 
         return serializedObj.toString();
